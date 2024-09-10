@@ -1,2 +1,1 @@
-web: pyt
-hon app.py
+web: flask run
