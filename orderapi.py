@@ -3,11 +3,11 @@ import json, os, config
 from ftxapi import Ftx
 from bybitapi import ByBit
 
-subaccount_name = 'SUBACCOUNT_NAME'
+subaccount_name = 'Testing'
 leverage = 1.0
 risk = 1.0 / 100
-api_key = 'API_KEY'
-api_secret = 'API_SECRET'
+api_key = 'UPAFznEo72Yv5FCX1n'
+api_secret = 'CTmisiLKyaoRwjp6MGOSs0n2BYHDMuC2G9Rx'
 
 
 # ================== SET GLOBAL VARIABLES ==================
