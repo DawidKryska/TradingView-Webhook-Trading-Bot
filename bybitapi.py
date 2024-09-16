@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 class ByBit:
     def __init__(self, var: dict):
-        self.subaccount_name = var['subaccount_name']
+        #self.subaccount_name = var['subaccount_name']
         self.leverage = var['leverage']
         self.risk = var['risk']
         self.api_key = var['api_key']
@@ -101,7 +101,7 @@ class ByBit:
                 "success": False,
                 "error": "Symbol BTCUSDT not found"
             }
-        qty_step = my_item['lotSizeFilter']['qtyStep']
+        qty_step = float (my_item['lotSizeFilter']['qtyStep'])
 
         # 0/ Get free collateral and calculate position
         r = self._try_request('get_wallet_balance', coin="USDT")
@@ -123,7 +123,7 @@ class ByBit:
 
         logbot.logs('>>> Found free collateral: {}'.format(free_collateral))
         size = (free_collateral * self.risk) / abs(payload['price'] - stop_loss)
-        if (size / (free_collateral / payload['price'])) > self.leverage:
+        if (size / (free_collateral / float(payload['price']))) > self.leverage:
             return {
                     "success": False,
                     "error": "leverage is higher than maximum limit you set"
