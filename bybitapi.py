@@ -17,7 +17,7 @@ class ByBit:
     # =============== SIGN, POST AND REQUEST ===============
 
     def _try_request(self, method: str, **kwargs):
-        session = HTTP(testnet=True,api_key=self.api_key, api_secret=self.api_secret)
+        session = HTTP(testnet=False,api_key=self.api_key, api_secret=self.api_secret)
         try:
             if method == 'get_wallet_balance':
                 req = session.get_wallet_balance(accountType="UNIFIED", coin=kwargs.get('coin'))
